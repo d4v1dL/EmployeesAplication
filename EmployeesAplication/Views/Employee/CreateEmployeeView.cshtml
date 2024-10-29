@@ -1,0 +1,60 @@
+﻿@model EmployeesApplication.Models.Employee
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Cadastro de Novos Funcionários</h1>
+
+    <form asp-action="Create" method="post">
+        <div class="form-group">
+            <input asp-for="FullName" class="form-control" placeholder="Nome" />
+        </div>
+        <br />
+        <div class="form-group">
+            <input asp-for="FullName" class="form-control" placeholder="Sobrenome" />
+        </div>
+        <br />
+        <div class="form-group">
+            <input asp-for="Phone" class="form-control" id="phone" placeholder="Telefone" />
+        </div>
+        <br />
+        <div class="form-group">
+            <input asp-for="Address" class="form-control" placeholder="Endereço" />
+        </div>
+        <br />
+        <div class="form-group">
+            <input asp-for="City" class="form-control" placeholder="Cidade" />
+        </div>
+        <br />
+        <div class="form-group">
+            <input asp-for="PostalCode" class="form-control" id="cep" placeholder="CEP" />
+        </div>
+        <br />
+        <div class="form-group">
+            <input asp-for="Salary" class="form-control" id="salary" placeholder="Sálario" />
+        </div>
+        <br />
+        <div class="form-group">
+            <textarea asp-for="JobDescription" class="form-control" rows="3" placeholder="Descrição da vaga"></textarea>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary float-left">Cadastrar</button>
+        
+    </form>
+</div>
+
+<!-- Máscaras -->
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Máscara para o telefone
+            $('#phone').mask('(00) 00000-0000');
+
+            // Máscara para o CEP
+            $('#cep').mask('00000-000');
+
+            // Máscara para o salário
+            $('#salary').mask('000.000.000.000.000,00', { reverse: true });
+        });
+    </script>
+}

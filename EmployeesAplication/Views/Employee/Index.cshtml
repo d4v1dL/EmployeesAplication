@@ -1,0 +1,39 @@
+﻿@model IEnumerable<EmployeesApplication.Models.Employee>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Funcionários</h1>
+    <a class="btn btn-primary mb-3" asp-action="Create">Adicionar Novo Funcionário</a>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Endereço</th>
+                <th>Cidade</th>
+                <th>CEP</th>
+                <th>Salário</th>
+                <th>Descrição do Cargo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.FullName</td>
+                    <td>@employee.Phone</td>
+                    <td>@employee.Address</td>
+                    <td>@employee.City</td>
+                    <td>@employee.PostalCode</td>
+                    <td>@employee.Salary.ToString("C")</td> <!-- Formatação de moeda -->
+                    <td>@employee.JobDescription</td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@employee.Id">Editar</a>
+                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@employee.Id">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,38 @@
+﻿@model EmployeesApplication.Models.Employee
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Excluir Funcionário</h1>
+
+    <div class="alert alert-danger" role="alert">
+        Você tem certeza que deseja excluir este funcionário?
+    </div>
+
+    <dl class="row">
+        <dt class="col-sm-3">Nome:</dt>
+        <dd class="col-sm-9">@Model.FullName</dd>
+
+        <dt class="col-sm-3">Telefone:</dt>
+        <dd class="col-sm-9">@Model.Phone</dd>
+
+        <dt class="col-sm-3">Endereço:</dt>
+        <dd class="col-sm-9">@Model.Address</dd>
+
+        <dt class="col-sm-3">Cidade:</dt>
+        <dd class="col-sm-9">@Model.City</dd>
+
+        <dt class="col-sm-3">CEP:</dt>
+        <dd class="col-sm-9">@Model.PostalCode</dd>
+
+        <dt class="col-sm-3">Salário:</dt>
+        <dd class="col-sm-9">@Model.Salary.ToString("C")</dd>
+
+        <dt class="col-sm-3">Descrição do Cargo:</dt>
+        <dd class="col-sm-9">@Model.JobDescription</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
